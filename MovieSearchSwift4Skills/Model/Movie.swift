@@ -9,10 +9,10 @@
 import Foundation
 
 struct Movies: Decodable {
-    let results: [Moive]
+    let results: [Movie]
 }
 
-struct Moive: Decodable {
+struct Movie: Decodable {
     
     let title: String
     let popularity: Double

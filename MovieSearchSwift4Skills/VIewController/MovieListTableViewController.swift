@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class MovieListTableViewController: UITableViewController, UISearchBarDelegate, SFSafariViewControllerDelegate {
+class MovieListTableViewController: UITableViewController, UISearchBarDelegate, MovieTableViewCellDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
@@ -31,6 +31,14 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
         }
     }
     
+    func isLikedButtonCellTapped(_ cell: MovieTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let moive = MovieController.shared.movies[indexPath.row]
+        MovieController.shared.updateLikedImage(movie: moive)
+        tableView.reloadRows(at: [indexPath], with: .fade)
+        cell.updateViews()
+    }
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,6 +53,7 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
         guard let posterPath = moive.posterPath else { return UITableViewCell() }
         
         cell.movie = moive
+        cell.delegate = self 
         cell.posterImageView.loadImage(imagePath: posterPath)
 
         

@@ -60,6 +60,17 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate {
         
     }
 
-
-
 }
+
+extension MovieListTableViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            
+        }
+    }
+}
+
+
+
+

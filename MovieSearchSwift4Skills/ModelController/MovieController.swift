@@ -33,9 +33,6 @@ class MovieController {
                 
                 if let error = error { throw error }
                 
-                if let response = response {
-//                    print(response)
-                }
                 guard let data = data else { throw NSError() }
                 
                 let movies = try JSONDecoder().decode(Movies.self, from: data).results

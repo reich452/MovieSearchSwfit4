@@ -32,7 +32,7 @@
         <!--Item-->
         <scene sceneID="Wkl-FC-mhx">
             <objects>
-                <tableViewController id="q2o-yQ-Xf3" sceneMemberID="viewController">
+                <tableViewController id="q2o-yQ-Xf3" customClass="MovieListTableViewController" customModule="MovieSearchSwift4Skills" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hAZ-He-W6H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,23 +41,27 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fHS-Sy-1Lm">
+                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fHS-Sy-1Lm">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="fHS-Sy-1Lm" firstAttribute="leading" secondItem="may-f3-LBp" secondAttribute="leading" id="KRn-la-1gu"/>
+                                <constraint firstItem="fHS-Sy-1Lm" firstAttribute="top" secondItem="may-f3-LBp" secondAttribute="top" id="buX-H5-r3o"/>
+                                <constraint firstAttribute="trailing" secondItem="fHS-Sy-1Lm" secondAttribute="trailing" id="vSu-4H-1Ec"/>
+                            </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="382" id="P5t-GP-tIS" customClass="SearchPostTableViewCell" customModule="RedditSwift4Skills" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="382" id="P5t-GP-tIS">
                                 <rect key="frame" x="0.0" y="91" width="375" height="382"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P5t-GP-tIS" id="6MD-BA-tqE">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="381.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHC-J0-Kaj" customClass="BackgroundView" customModule="RedditSwift4Skills" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHC-J0-Kaj" customClass="BackgroundView" customModule="MovieSearchSwift4Skills" customModuleProvider="target">
                                             <rect key="frame" x="10" y="10" width="356" height="363"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fmU-Gz-u2l">
@@ -123,9 +127,6 @@
                                         <constraint firstItem="2qI-nX-pgb" firstAttribute="width" secondItem="6MD-BA-tqE" secondAttribute="width" multiplier="0.8" id="hz6-lJ-Lup"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="postImageView" destination="fmU-Gz-u2l" id="VTZ-zv-dfd"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -135,7 +136,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="Oec-l6-NgL"/>
                     <connections>
-                        <outlet property="searchBar" destination="fHS-Sy-1Lm" id="7lz-9W-IUD"/>
+                        <outlet property="searchBar" destination="fHS-Sy-1Lm" id="lNw-Ak-Na4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUr-mu-H9T" userLabel="First Responder" sceneMemberID="firstResponder"/>

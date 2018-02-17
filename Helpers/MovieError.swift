@@ -6,12 +6,23 @@
 //  Copyright © 2018 Nick Reichard. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum MovieError: Error {
     case invalidUrl
     case requestFailed
     case jsonConversionFailure
     case imageDataFailure
+}
+
+enum Icon {
+    
+    case defaultPoser
+    
+    var defaultImage: UIImage {
+        switch self {
+        case .defaultPoser: return #imageLiteral(resourceName: "redditDefaultImage")
+        }
+    }
 }
 

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MovieTableViewCellDelegate: class {
+    func isLikedButtonCellTapped(_ cell: MovieTableViewCell)
+}
+
 class MovieTableViewCell: UITableViewCell {
 
 
@@ -16,6 +20,9 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var overViewLabel: UILabel!
+    
+    // MARK: - Properties
+    weak var delegate: MovieTableViewCellDelegate?
     
     var movie: Movie? {
         didSet {

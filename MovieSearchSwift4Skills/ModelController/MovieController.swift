@@ -58,6 +58,13 @@ class MovieController {
         return url
     }
     
+    // MARK: - CRUD
+    
+    func updateLikedImage(movie: Movie) {
+        var movie = movie
+        movie.isLiked = !movie.isLiked
+    }
+    
 }
 
 

@@ -37,14 +37,20 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.movieCellID, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.movieCellID, for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         
         let moive = MovieController.shared.movies[indexPath.row]
+        guard let posterPath = moive.posterPath else { return UITableViewCell() }
         
-        cell.textLabel?.text = moive.title
-        cell.detailTextLabel?.text = moive.overview
+        cell.movie = moive
+        cell.posterImageView.loadImage(imagePath: posterPath)
+
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 450
     }
     
 

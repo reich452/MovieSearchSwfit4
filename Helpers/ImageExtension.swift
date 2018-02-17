@@ -12,7 +12,7 @@ extension UIImageView {
     
     func loadImage(imagePath: String) {
         
-        let urlString = Query.shared.baseURL + imagePath
+        let urlString = Query.shared.imageBaseUrl + imagePath
         
         guard let url = URL(string: urlString) else {
             print("Invalid URL")

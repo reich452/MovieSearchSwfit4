@@ -17,5 +17,24 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var overViewLabel: UILabel!
     
+    var movie: Movie? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    var posterImage: UIImage? {
+        didSet {
+            guard let posterPath = movie?.posterPath else { return }
+            self.posterImageView.loadImage(imagePath: posterPath)
+        }
+    }
+    
+    func updateViews() {
+        guard let movie = movie else { return }
+        titleLabel.text = movie.title
+        ratingLabel.text = "\(movie.popularity)"
+        overViewLabel.text = movie.overview
+    }
     
 }

@@ -16,13 +16,13 @@ struct Movie: Decodable {
     
     let title: String
     let popularity: Double
-    let posterPath: String
+    let posterPath: String?
     let overview: String
     
     private enum CodingKeys: String, CodingKey {
         case title
         case popularity
-        case posterPath = "post_path"
+        case posterPath = "poster_path"
         case overview
     }
 }

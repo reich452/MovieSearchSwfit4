@@ -8,6 +8,15 @@
 
 import UIKit
 
-extension UIIMageVIew {
+extension UIImageView {
+    
+    func loadImage(imagePath: String) {
+        
+        guard let url = URL(string: imagePath) else {
+            print("Invalid URL")
+            return
+        }
+    }
+    
     
 }

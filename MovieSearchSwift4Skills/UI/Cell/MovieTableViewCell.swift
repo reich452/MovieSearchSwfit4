@@ -20,6 +20,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var overViewLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
     
     // MARK: - Properties
     weak var delegate: MovieTableViewCellDelegate?
@@ -37,11 +38,21 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
+    @IBAction func isLikedButtonTapped(_ sender: UIButton) {
+        delegate?.isLikedButtonCellTapped(self)
+    }
+    
     func updateViews() {
         guard let movie = movie else { return }
         titleLabel.text = movie.title
         ratingLabel.text = "\(movie.popularity)"
         overViewLabel.text = movie.overview
+        
+        if movie.isLiked {
+            self.likeButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
+        } else {
+            self.likeButton.setImage(#imageLiteral(resourceName: "filledHear"), for: .normal)
+        }
     }
     
 }

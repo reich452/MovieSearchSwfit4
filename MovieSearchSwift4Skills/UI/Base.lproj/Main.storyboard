@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -118,6 +119,7 @@
                                     <outlet property="posterImageView" destination="fmU-Gz-u2l" id="Rxl-lz-mh1"/>
                                     <outlet property="ratingLabel" destination="SMB-H4-c0s" id="vLD-Nf-R7F"/>
                                     <outlet property="titleLabel" destination="kk1-Le-Osc" id="9mH-ux-fhd"/>
+                                    <segue destination="yBC-ks-Ug0" kind="show" identifier="toMoiveDetail" id="w0t-fA-cUW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -134,6 +136,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUr-mu-H9T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="717.60000000000002" y="767.76611694152928"/>
+        </scene>
+        <!--Movie Detail View Controller-->
+        <scene sceneID="8gS-Si-Erq">
+            <objects>
+                <viewController id="yBC-ks-Ug0" customClass="MovieDetailViewController" customModule="MovieSearchSwift4Skills" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4gx-0t-9ol">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKS-93-QQL" customClass="BackgroundView" customModule="MovieSearchSwift4Skills" customModuleProvider="target">
+                                <rect key="frame" x="9" y="16.5" width="356" height="634"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GgN-04-hPh">
+                                        <rect key="frame" x="47" y="90" width="262.5" height="367"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ERd-d1-XUm">
+                                        <rect key="frame" x="28" y="488" width="300" height="53"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLP-9J-aCL">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="de5-Gj-MuO">
+                                                <rect key="frame" x="0.0" y="32.5" width="300" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="GgN-04-hPh" firstAttribute="centerX" secondItem="oKS-93-QQL" secondAttribute="centerX" id="5TE-bj-298"/>
+                                    <constraint firstItem="GgN-04-hPh" firstAttribute="top" secondItem="oKS-93-QQL" secondAttribute="top" constant="90" id="MIa-Lh-cbA"/>
+                                    <constraint firstItem="ERd-d1-XUm" firstAttribute="width" secondItem="oKS-93-QQL" secondAttribute="width" multiplier="0.8" constant="15.199999999999989" id="nw8-hH-HcH"/>
+                                    <constraint firstItem="ERd-d1-XUm" firstAttribute="top" secondItem="GgN-04-hPh" secondAttribute="bottom" constant="31" id="qG8-pM-HYG"/>
+                                    <constraint firstItem="ERd-d1-XUm" firstAttribute="centerX" secondItem="oKS-93-QQL" secondAttribute="centerX" id="uFj-2q-8BO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUm-u6-xST">
+                                <rect key="frame" x="37" y="583" width="300" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.8830504441624365" green="0.8830504441624365" blue="0.8830504441624365" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="oKS-93-QQL" firstAttribute="centerX" secondItem="4gx-0t-9ol" secondAttribute="centerX" id="0fj-1g-5dx"/>
+                            <constraint firstItem="oKS-93-QQL" firstAttribute="height" secondItem="4gx-0t-9ol" secondAttribute="height" multiplier="0.95" id="8QQ-lh-Xb8"/>
+                            <constraint firstItem="eUm-u6-xST" firstAttribute="centerX" secondItem="4gx-0t-9ol" secondAttribute="centerX" id="JVl-lO-XAl"/>
+                            <constraint firstItem="eUm-u6-xST" firstAttribute="top" secondItem="ERd-d1-XUm" secondAttribute="bottom" constant="25.5" id="aoP-dA-pO2"/>
+                            <constraint firstItem="oKS-93-QQL" firstAttribute="centerY" secondItem="4gx-0t-9ol" secondAttribute="centerY" id="d5X-vj-fJP"/>
+                            <constraint firstItem="oKS-93-QQL" firstAttribute="width" secondItem="4gx-0t-9ol" secondAttribute="width" multiplier="0.95" id="gWs-pa-RA2"/>
+                            <constraint firstItem="eUm-u6-xST" firstAttribute="width" secondItem="4gx-0t-9ol" secondAttribute="width" multiplier="0.8" id="jzV-3J-3vF"/>
+                            <constraint firstItem="GgN-04-hPh" firstAttribute="width" secondItem="4gx-0t-9ol" secondAttribute="width" multiplier="0.7" id="mm1-8y-EAk"/>
+                            <constraint firstItem="GgN-04-hPh" firstAttribute="height" secondItem="4gx-0t-9ol" secondAttribute="height" multiplier="0.55" id="oRR-gr-fD8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FLE-BZ-hn7"/>
+                    </view>
+                    <connections>
+                        <outlet property="overViewLabel" destination="eUm-u6-xST" id="zoj-QK-COF"/>
+                        <outlet property="posterImageView" destination="GgN-04-hPh" id="YfF-aL-Uve"/>
+                        <outlet property="ratingLabel" destination="de5-Gj-MuO" id="vO3-we-K6h"/>
+                        <outlet property="titleLabel" destination="LLP-9J-aCL" id="Bcb-sf-dVp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eYw-kZ-iG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1544.8" y="767.76611694152928"/>
         </scene>
         <!--Item-->
         <scene sceneID="Iih-AG-qLY">

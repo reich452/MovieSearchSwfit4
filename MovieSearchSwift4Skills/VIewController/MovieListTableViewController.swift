@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class MovieListTableViewController: UITableViewController, UISearchBarDelegate {
+class MovieListTableViewController: UITableViewController, UISearchBarDelegate, SFSafariViewControllerDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
@@ -20,6 +21,7 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate {
     // MARK: - Delegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
+        searchBar.resignFirstResponder()
         MovieController.shared.fetchMovie(with: searchText) { (moives, error) in
             DispatchQueue.main.async { [weak self] in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -57,7 +59,16 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "toMoiveDetail" {
+            guard let destinationVC = segue.destination as? MovieDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow else { return }
+         
+            let movie = MovieController.shared.movies[indexPath.row]
+            
+            destinationVC.movie = movie
+           
+            
+        }
     }
 
 }

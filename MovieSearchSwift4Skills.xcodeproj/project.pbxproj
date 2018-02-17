@@ -20,6 +20,7 @@
 		01B93ED32037B42100B7548B /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B93ED22037B42100B7548B /* Query.swift */; };
 		01F58F412037B84500808519 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F58F402037B84500808519 /* MovieTableViewCell.swift */; };
 		01F58F432037B93400808519 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F58F422037B93400808519 /* Theme.swift */; };
+		01F58F472037D8A700808519 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F58F462037D8A700808519 /* MovieDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		01B93ED22037B42100B7548B /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		01F58F402037B84500808519 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		01F58F422037B93400808519 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		01F58F462037D8A700808519 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				0172F00220376B90002245CC /* MovieListTableViewController.swift */,
+				01F58F462037D8A700808519 /* MovieDetailViewController.swift */,
 			);
 			path = VIewController;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				0172EFE420375951002245CC /* AppDelegate.swift in Sources */,
 				01F58F432037B93400808519 /* Theme.swift in Sources */,
 				0172F00320376B90002245CC /* MovieListTableViewController.swift in Sources */,
+				01F58F472037D8A700808519 /* MovieDetailViewController.swift in Sources */,
 				0172F00620376CAF002245CC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

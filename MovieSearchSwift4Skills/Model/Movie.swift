@@ -14,11 +14,16 @@ struct Movies: Decodable {
 
 struct Movie: Decodable {
     
+    // MARK: - JSONProperties
     let title: String
     let popularity: Double
     let posterPath: String?
     let overview: String
     let id: Int
+    
+    // MARK: - Properties
+    var isLiked: Bool = false 
+    
     private enum CodingKeys: String, CodingKey {
         case title
         case popularity

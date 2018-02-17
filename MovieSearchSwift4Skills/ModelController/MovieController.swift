@@ -34,7 +34,7 @@ class MovieController {
                 if let error = error { throw error }
                 
                 if let response = response {
-                    print(response)
+//                    print(response)
                 }
                 guard let data = data else { throw NSError() }
                 
@@ -47,7 +47,7 @@ class MovieController {
                 print("Error fetching movie: \(error) \(error.localizedDescription) \(#function)")
                 completion(nil, .jsonConversionFailure)
             }
-        }
+        }.resume()
     }
     
     func url(byAdding parameters: [String : String]?,

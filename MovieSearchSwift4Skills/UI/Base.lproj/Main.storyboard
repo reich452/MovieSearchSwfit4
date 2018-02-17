@@ -54,15 +54,15 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="382" id="P5t-GP-tIS">
-                                <rect key="frame" x="0.0" y="91" width="375" height="382"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="446" id="P5t-GP-tIS" customClass="MovieTableViewCell" customModule="MovieSearchSwift4Skills" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="91" width="375" height="446"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P5t-GP-tIS" id="6MD-BA-tqE">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="381.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="445.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHC-J0-Kaj" customClass="BackgroundView" customModule="MovieSearchSwift4Skills" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="10" width="356" height="363"/>
+                                            <rect key="frame" x="10" y="11" width="356" height="423.5"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fmU-Gz-u2l">
                                                     <rect key="frame" x="80" y="8" width="197" height="297"/>
@@ -87,21 +87,22 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qI-nX-pgb">
-                                                    <rect key="frame" x="28" y="387" width="300" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMA-5z-9g7">
+                                                    <rect key="frame" x="28" y="372" width="300" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="2qI-nX-pgb" firstAttribute="top" secondItem="AYf-dB-zMC" secondAttribute="bottom" constant="23" id="DQr-Sg-qua"/>
                                                 <constraint firstItem="AYf-dB-zMC" firstAttribute="centerX" secondItem="aHC-J0-Kaj" secondAttribute="centerX" id="L19-CR-6U2"/>
                                                 <constraint firstItem="fmU-Gz-u2l" firstAttribute="top" secondItem="aHC-J0-Kaj" secondAttribute="top" constant="8" id="QQx-qZ-RSg"/>
+                                                <constraint firstItem="zMA-5z-9g7" firstAttribute="centerX" secondItem="aHC-J0-Kaj" secondAttribute="centerX" id="TcZ-wP-Sdz"/>
                                                 <constraint firstItem="AYf-dB-zMC" firstAttribute="top" secondItem="fmU-Gz-u2l" secondAttribute="bottom" constant="8" id="Wd0-VN-E9f"/>
-                                                <constraint firstItem="2qI-nX-pgb" firstAttribute="centerX" secondItem="aHC-J0-Kaj" secondAttribute="centerX" id="oY4-1H-dLO"/>
                                                 <constraint firstItem="fmU-Gz-u2l" firstAttribute="centerX" secondItem="aHC-J0-Kaj" secondAttribute="centerX" id="rBs-VM-4Wa"/>
+                                                <constraint firstItem="zMA-5z-9g7" firstAttribute="top" secondItem="AYf-dB-zMC" secondAttribute="bottom" constant="8" id="uEk-Os-qiV"/>
+                                                <constraint firstItem="zMA-5z-9g7" firstAttribute="width" secondItem="aHC-J0-Kaj" secondAttribute="width" multiplier="0.8" constant="15.199999999999989" id="wzc-NC-Kaf"/>
                                                 <constraint firstItem="fmU-Gz-u2l" firstAttribute="leading" secondItem="aHC-J0-Kaj" secondAttribute="leading" constant="80" id="zdO-kp-g3L"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
@@ -124,9 +125,15 @@
                                         <constraint firstItem="AYf-dB-zMC" firstAttribute="width" secondItem="6MD-BA-tqE" secondAttribute="width" multiplier="0.8" id="Oga-PR-jbB"/>
                                         <constraint firstItem="aHC-J0-Kaj" firstAttribute="height" secondItem="6MD-BA-tqE" secondAttribute="height" multiplier="0.95" id="Oxl-Ks-pZF"/>
                                         <constraint firstItem="aHC-J0-Kaj" firstAttribute="width" secondItem="6MD-BA-tqE" secondAttribute="width" multiplier="0.95" id="STd-Xc-v8Z"/>
-                                        <constraint firstItem="2qI-nX-pgb" firstAttribute="width" secondItem="6MD-BA-tqE" secondAttribute="width" multiplier="0.8" id="hz6-lJ-Lup"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="customBackgroundView" destination="aHC-J0-Kaj" id="Q4d-0K-fLH"/>
+                                    <outlet property="overViewLabel" destination="zMA-5z-9g7" id="qZL-di-fv3"/>
+                                    <outlet property="posterImageView" destination="fmU-Gz-u2l" id="Rxl-lz-mh1"/>
+                                    <outlet property="ratingLabel" destination="SMB-H4-c0s" id="vLD-Nf-R7F"/>
+                                    <outlet property="titleLabel" destination="kk1-Le-Osc" id="9mH-ux-fhd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

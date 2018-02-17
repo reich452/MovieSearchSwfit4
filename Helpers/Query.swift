@@ -11,9 +11,9 @@ import Foundation
 struct Query {
     static let shared = Query()
     
-    static private let apiKey = "3e6fc78d34ea9b6595d61441a091daf9"
-    static private let baseURL = "https://api.themoviedb.org/3/search/movie?"
-    static private let queryParam = "query"
-    static private let apiParam = "api_key"
-    static private let imageBaseUrl = "https://image.tmdb.org/t/p/w500"
+    static fileprivate let apiKey = "3e6fc78d34ea9b6595d61441a091daf9"
+    let baseURL = "https://api.themoviedb.org/3/search/movie?"
+    let queryParam = "query"
+    let apiParam = "api_key"
+    let imageBaseUrl = "https://image.tmdb.org/t/p/w500"
 }

@@ -14,7 +14,7 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-
+        tableView.prefetchDataSource = self
     }
     
     // MARK: - Delegate
@@ -67,6 +67,13 @@ extension MovieListTableViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             
+            let moive = MovieController.shared.movies[indexPath.row]
+            let baseImageUrl = URL(string: "\(Query.shared.imageBaseUrl)")
+            guard let posterUrl = moive.posterPath,
+            let requestUrl = baseImageUrl?.appendingPathComponent(posterUrl) else { return }
+            
+            URLSession.shared.dataTask(with: requestUrl)
+            print("Prefetching \(moive.title)")
         }
     }
 }

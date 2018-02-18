@@ -34,7 +34,7 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
     func isLikedButtonCellTapped(_ cell: MovieTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         let moive = MovieController.shared.movies[indexPath.row]
-        MovieController.shared.updateLikedImage(movie: moive)
+        let _ = MovieController.shared.updateLikedImage(movie: moive)
         tableView.reloadRows(at: [indexPath], with: .fade)
         cell.updateViews()
     }

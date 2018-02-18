@@ -12,7 +12,7 @@ struct Movies: Decodable {
     let results: [Movie]
 }
 
-struct Movie: Decodable {
+class Movie: Decodable {
     
     // MARK: - JSONProperties
     let title: String
@@ -32,9 +32,18 @@ struct Movie: Decodable {
         case id
     }
     
-    mutating func toggleIsLiked() {
-        self.isLiked = !isLiked
+    init(title: String, popularity: Double, posterPath: String?, overview: String, id: Int, isLiked: Bool) {
+        self.title = title
+        self.popularity = popularity
+        self.posterPath = posterPath
+        self.overview = overview
+        self.id = id
+        self.isLiked = isLiked
     }
+    
+//    mutating func toggleIsLiked(isLiked: Bool = false) {
+//        self.isLiked = !isLiked
+//    }
 }
 
 extension Movie: Equatable {

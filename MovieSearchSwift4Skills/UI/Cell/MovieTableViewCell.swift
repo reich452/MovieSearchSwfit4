@@ -49,9 +49,9 @@ class MovieTableViewCell: UITableViewCell {
         overViewLabel.text = movie.overview
         
         if movie.isLiked {
-            self.likeButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
-        } else {
             self.likeButton.setImage(#imageLiteral(resourceName: "filledHear"), for: .normal)
+        } else {
+            self.likeButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
         }
     }
     

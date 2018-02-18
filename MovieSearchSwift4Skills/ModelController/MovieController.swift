@@ -60,9 +60,15 @@ class MovieController {
     
     // MARK: - CRUD
     
-    func updateLikedImage(movie: Movie) {
-        var movie = movie
+    func updateLikedImage(movie: Movie) -> Movie? {
+    
         movie.isLiked = !movie.isLiked
+        guard let index = movies.index(of: movie) else { return nil }
+        return movies[index]
+    }
+    
+    func movie(at indexPath: IndexPath) -> Movie {
+        return movies[indexPath.row]
     }
     
 }

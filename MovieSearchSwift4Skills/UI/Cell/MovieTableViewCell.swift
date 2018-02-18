@@ -10,6 +10,7 @@ import UIKit
 
 protocol MovieTableViewCellDelegate: class {
     func isLikedButtonCellTapped(_ cell: MovieTableViewCell)
+    
 }
 
 class MovieTableViewCell: UITableViewCell {
@@ -48,10 +49,10 @@ class MovieTableViewCell: UITableViewCell {
         ratingLabel.text = "\(movie.popularity)"
         overViewLabel.text = movie.overview
         
-        if movie.isLiked {
-            self.likeButton.setImage(#imageLiteral(resourceName: "filledHear"), for: .normal)
+        if MovieController.shared.likedMovieIDs.contains(movie.id) {
+            likeButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
         } else {
-            self.likeButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
+            likeButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
         }
     }
     

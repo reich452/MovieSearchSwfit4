@@ -16,12 +16,14 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
         super.viewDidLoad()
         searchBar.delegate = self
         tableView.prefetchDataSource = self
+        
     }
     
     // MARK: - Delegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
         searchBar.resignFirstResponder()
+        let _ = MovieController.shared.load()
         MovieController.shared.fetchMovie(with: searchText) { (moives, error) in
             DispatchQueue.main.async { [weak self] in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -33,8 +35,22 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
     
     func isLikedButtonCellTapped(_ cell: MovieTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        let moive = MovieController.shared.movies[indexPath.row]
-        let _ = MovieController.shared.updateLikedImage(movie: moive)
+        let movie = MovieController.shared.likedMovies[indexPath.row]
+        let _ = MovieController.shared.updateLikedImage(movie: movie)
+      
+        if movie.moiveIds.contains(movie.id) {
+            guard let index = movie.moiveIds.index(of: movie.id) else { print("Cant find id"); return }
+            movie.moiveIds.remove(at: index)
+            guard let indexAt = MovieController.shared.movies.index(where: { $0.id == movie.id})  else { print("Not equal indexAt"); return }
+            cell.likeButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
+            let moiveToDelete = MovieController.shared.likedMovies[indexAt]
+            MovieController.shared.deleteLikedMovie(movie: moiveToDelete)
+        } else {
+            movie.moiveIds.append(movie.id)
+            MovieController.shared.saveLikedMovie(moiveId: movie.id)
+            MovieController.shared.likedMovies.append(movie)
+            cell.likeButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
+        }
         tableView.reloadRows(at: [indexPath], with: .fade)
         cell.updateViews()
     }
@@ -55,7 +71,7 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
         cell.movie = moive
         cell.delegate = self 
         cell.posterImageView.loadImage(imagePath: posterPath)
-
+        
         
         return cell
     }
@@ -64,22 +80,22 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
         return 450
     }
     
-
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toMoiveDetail" {
             guard let destinationVC = segue.destination as? MovieDetailViewController,
                 let indexPath = tableView.indexPathForSelectedRow else { return }
-         
+            
             let movie = MovieController.shared.movies[indexPath.row]
             
             destinationVC.movie = movie
-           
+            
             
         }
     }
-
+    
 }
 
 extension MovieListTableViewController: UITableViewDataSourcePrefetching {
@@ -90,7 +106,7 @@ extension MovieListTableViewController: UITableViewDataSourcePrefetching {
             let moive = MovieController.shared.movies[indexPath.row]
             let baseImageUrl = URL(string: "\(Query.shared.imageBaseUrl)")
             guard let posterUrl = moive.posterPath,
-            let requestUrl = baseImageUrl?.appendingPathComponent(posterUrl) else { return }
+                let requestUrl = baseImageUrl?.appendingPathComponent(posterUrl) else { return }
             
             URLSession.shared.dataTask(with: requestUrl)
             print("Prefetching \(moive.title)")

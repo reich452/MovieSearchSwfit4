@@ -14,13 +14,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
-<<<<<<< HEAD
-            endingLineNumber = "95">
-=======
             endingLineNumber = "95"
             landmarkName = "deleteLikedMovie(movie:)"
             landmarkType = "7">
->>>>>>> f5a7ee4414f7bb97bc89f93d7ef9e058ae231697
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -34,13 +30,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
-<<<<<<< HEAD
-            endingLineNumber = "97">
-=======
             endingLineNumber = "97"
             landmarkName = "deleteLikedMovie(movie:)"
             landmarkType = "7">
->>>>>>> f5a7ee4414f7bb97bc89f93d7ef9e058ae231697
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

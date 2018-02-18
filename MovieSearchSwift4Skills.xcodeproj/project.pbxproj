@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011981CD203A2C9200238080 /* ArrayExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011981CC203A2C9200238080 /* ArrayExtention.swift */; };
 		0172EFE420375951002245CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172EFE320375951002245CC /* AppDelegate.swift */; };
 		0172EFE920375951002245CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0172EFE720375951002245CC /* Main.storyboard */; };
 		0172EFEB20375951002245CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0172EFEA20375951002245CC /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		011981CC203A2C9200238080 /* ArrayExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtention.swift; sourceTree = "<group>"; };
 		0172EFE020375951002245CC /* MovieSearchSwift4Skills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearchSwift4Skills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0172EFE320375951002245CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0172EFE820375951002245CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				01B93ED02037B20B00B7548B /* ImageExtension.swift */,
 				01B93ED22037B42100B7548B /* Query.swift */,
 				01F58F422037B93400808519 /* Theme.swift */,
+				011981CC203A2C9200238080 /* ArrayExtention.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				011981CD203A2C9200238080 /* ArrayExtention.swift in Sources */,
 				0172EFFE20376293002245CC /* MovieController.swift in Sources */,
 				0172F00120376771002245CC /* MovieError.swift in Sources */,
 				01F58F412037B84500808519 /* MovieTableViewCell.swift in Sources */,

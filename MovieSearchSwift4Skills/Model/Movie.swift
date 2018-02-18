@@ -31,4 +31,22 @@ struct Movie: Decodable {
         case overview
         case id
     }
+    
+    mutating func toggleIsLiked() {
+        self.isLiked = !isLiked
+    }
 }
+
+extension Movie: Equatable {
+    static func ==(lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.title == rhs.title
+        && lhs.popularity == rhs.popularity
+        && lhs.posterPath == rhs.posterPath
+        && lhs.overview == rhs.overview
+        && lhs.id == rhs.id
+        && lhs.isLiked == rhs.isLiked
+    }
+}
+
+
+

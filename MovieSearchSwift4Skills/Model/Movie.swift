@@ -12,17 +12,18 @@ struct Movies: Decodable {
     let results: [Movie]
 }
 
-class Movie: Decodable {
+class Movie: Codable {
     
     // MARK: - JSONProperties
-    let title: String
-    let popularity: Double
-    let posterPath: String?
-    let overview: String
-    let id: Int
+    var title: String = ""
+    var popularity: Double = 0.0
+    var posterPath: String? = ""
+    var overview: String = ""
+    let id: Int 
     
     // MARK: - Properties
-    var isLiked: Bool = false 
+    var isLiked: Bool = false
+    var moiveIds: [Int] = []
     
     private enum CodingKeys: String, CodingKey {
         case title
@@ -32,13 +33,14 @@ class Movie: Decodable {
         case id
     }
     
-    init(title: String, popularity: Double, posterPath: String?, overview: String, id: Int, isLiked: Bool) {
+    init(title: String = String(), popularity: Double = Double(), posterPath: String? = String(), overview: String = String(), id: Int, isLiked: Bool, moiveIds: [Int] = []) {
         self.title = title
         self.popularity = popularity
         self.posterPath = posterPath
         self.overview = overview
         self.id = id
         self.isLiked = isLiked
+        self.moiveIds = moiveIds
     }
     
 //    mutating func toggleIsLiked(isLiked: Bool = false) {
@@ -54,6 +56,7 @@ extension Movie: Equatable {
         && lhs.overview == rhs.overview
         && lhs.id == rhs.id
         && lhs.isLiked == rhs.isLiked
+        && lhs.moiveIds == rhs.moiveIds
     }
 }
 

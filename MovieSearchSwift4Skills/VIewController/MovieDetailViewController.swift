@@ -28,6 +28,14 @@ class MovieDetailViewController: UIViewController {
         posterImageView.loadImage(imagePath: movie.posterPath ?? "")
     }
     
+    // MARK: - Actions
+    
+    @IBAction func illPassButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func cantWaitButtonTapped(_ sender: Any) {
+    }
+    
     private func howManyStars(numberOfStars: Int) -> String {
         let starString: String
         
@@ -63,5 +71,6 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var overViewLabel: UILabel!
+    @IBOutlet weak var fadeView: UIView!
     
 }

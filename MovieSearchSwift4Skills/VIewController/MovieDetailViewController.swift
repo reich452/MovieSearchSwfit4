@@ -21,7 +21,7 @@ class MovieDetailViewController: UIViewController {
     
     func updateViews() {
         guard let movie = movie else { return }
-        let popularity = Int(movie.popularity)
+        let popularity = Int(movie.voteAverage)
         titleLabel.text = movie.title
         ratingLabel.text = howManyStars(numberOfStars: popularity)
         overViewLabel.text = movie.overview

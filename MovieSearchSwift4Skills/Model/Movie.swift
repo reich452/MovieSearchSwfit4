@@ -23,7 +23,7 @@ class Movie: Codable {
     
     // MARK: - Properties
     var isLiked: Bool = false
-    var moiveIds: [Int] = []
+    
     
     private enum CodingKeys: String, CodingKey {
         case title
@@ -33,7 +33,7 @@ class Movie: Codable {
         case id
     }
     
-    init(title: String = String(), popularity: Double = Double(), posterPath: String? = String(), overview: String = String(), id: Int, isLiked: Bool, moiveIds: [Int] = []) {
+    init(title: String = String(), popularity: Double = Double(), posterPath: String? = String(), overview: String = String(), id: Int, isLiked: Bool) {
         self.title = title
         self.popularity = popularity
         self.posterPath = posterPath
@@ -56,7 +56,6 @@ extension Movie: Equatable {
         && lhs.overview == rhs.overview
         && lhs.id == rhs.id
         && lhs.isLiked == rhs.isLiked
-        && lhs.moiveIds == rhs.moiveIds
     }
 }
 

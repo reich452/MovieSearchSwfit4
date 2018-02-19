@@ -19,7 +19,9 @@ class Movie: Codable {
     var popularity: Double = 0.0
     var posterPath: String? = ""
     var overview: String = ""
-    let id: Int 
+    var voteAverage: Double = 0.0
+    var releaseDate: String = ""
+    let id: Int
     
     // MARK: - Properties
     var isLiked: Bool = false
@@ -30,21 +32,21 @@ class Movie: Codable {
         case popularity
         case posterPath = "poster_path"
         case overview
+        case voteAverage = "vote_average"
+        case releaseDate = "release_date"
         case id
     }
     
-    init(title: String = String(), popularity: Double = Double(), posterPath: String? = String(), overview: String = String(), id: Int, isLiked: Bool) {
+    init(title: String = String(), popularity: Double = Double(), posterPath: String? = String(), overview: String = String(), id: Int, isLiked: Bool, voteAverage: Double = Double(), releaseDate: String = String()) {
         self.title = title
         self.popularity = popularity
         self.posterPath = posterPath
         self.overview = overview
         self.id = id
         self.isLiked = isLiked
+        self.voteAverage = voteAverage
+        self.releaseDate = releaseDate
     }
-    
-//    mutating func toggleIsLiked(isLiked: Bool = false) {
-//        self.isLiked = !isLiked
-//    }
 }
 
 extension Movie: Equatable {

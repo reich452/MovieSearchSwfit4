@@ -31,3 +31,16 @@ class BackgroundView: UIView {
     }
 }
 
+class MoiveImageView: UIImageView {
+    
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+        didSet {
+            layer.contentsScale = cornerRadius
+            layer.masksToBounds = cornerRadius > 0
+        }
+    }
+}
+
+
+
+

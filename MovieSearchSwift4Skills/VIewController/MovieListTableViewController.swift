@@ -16,7 +16,7 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
         super.viewDidLoad()
         searchBar.delegate = self
         tableView.prefetchDataSource = self
-        
+        setUpUI()
     }
     
     // MARK: - Delegate
@@ -71,7 +71,13 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 450
+        return 200
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let moiveCell = cell as? MovieTableViewCell else { return }
+        
+        moiveCell.backgroundColor = UIColor(white: 1, alpha: 0.1)
     }
     
     
@@ -101,10 +107,25 @@ extension MovieListTableViewController: UITableViewDataSourcePrefetching {
             let baseImageUrl = URL(string: "\(Query.shared.imageBaseUrl)")
             guard let posterUrl = moive.posterPath,
                 let requestUrl = baseImageUrl?.appendingPathComponent(posterUrl) else { return }
-            
             URLSession.shared.dataTask(with: requestUrl)
-        
         }
+    }
+}
+
+extension MovieListTableViewController {
+    
+    func setUpUI() {
+        let backgroundImage = #imageLiteral(resourceName: "moiveCellBackground")
+        
+        let imageView = UIImageView(image: backgroundImage)
+        imageView.contentMode = .scaleAspectFit
+        
+        tableView.backgroundView = imageView
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = imageView.bounds
+        imageView.addSubview(blurView)
     }
 }
 

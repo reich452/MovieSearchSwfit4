@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		011981CD203A2C9200238080 /* ArrayExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011981CC203A2C9200238080 /* ArrayExtention.swift */; };
+		013E9DEA203B8AA100D353DD /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013E9DE9203B8AA100D353DD /* ButtonExtension.swift */; };
 		0172EFE420375951002245CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172EFE320375951002245CC /* AppDelegate.swift */; };
 		0172EFE920375951002245CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0172EFE720375951002245CC /* Main.storyboard */; };
 		0172EFEB20375951002245CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0172EFEA20375951002245CC /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		011981CC203A2C9200238080 /* ArrayExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtention.swift; sourceTree = "<group>"; };
+		013E9DE9203B8AA100D353DD /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		0172EFE020375951002245CC /* MovieSearchSwift4Skills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearchSwift4Skills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0172EFE320375951002245CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0172EFE820375951002245CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				01B93ED22037B42100B7548B /* Query.swift */,
 				01F58F422037B93400808519 /* Theme.swift */,
 				011981CC203A2C9200238080 /* ArrayExtention.swift */,
+				013E9DE9203B8AA100D353DD /* ButtonExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				01F58F432037B93400808519 /* Theme.swift in Sources */,
 				0172F00320376B90002245CC /* MovieListTableViewController.swift in Sources */,
 				01F58F472037D8A700808519 /* MovieDetailViewController.swift in Sources */,
+				013E9DEA203B8AA100D353DD /* ButtonExtension.swift in Sources */,
 				0172F00620376CAF002245CC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

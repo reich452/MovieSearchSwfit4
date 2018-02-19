@@ -32,13 +32,15 @@ class MovieDetailViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func illPassButtonTapped(_ sender: Any) {
+    @IBAction func illPassButtonTapped(_ sender: UIButton) {
         guard let movie = movie else { return }
+        sender.dislikeShake()
         MovieController.shared.deleteLikedMovie(movie: movie)
         
     }
     
-    @IBAction func cantWaitButtonTapped(_ sender: Any) {
+    @IBAction func cantWaitButtonTapped(_ sender: UIButton) {
+        sender.likeShake()
         guard let movie = movie else { return }
         MovieController.shared.saveLikedMovie(moiveId: movie.id)
     }

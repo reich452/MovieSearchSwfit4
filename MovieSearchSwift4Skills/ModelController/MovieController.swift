@@ -23,7 +23,6 @@ class MovieController {
     var movies = [Movie]()
     var likedMovies: [Movie] = []
     
-    
     var likedMovieIDs: [Int] {
         get {
             return likedMovies.flatMap({$0.id})
@@ -32,10 +31,6 @@ class MovieController {
             guard let movie = movie else { return }
             likedMovies.append(movie)
         }
-    }
-  
-    func likedMOIVE2() -> [Int] {
-        return likedMovies.flatMap{$0.id}
     }
     
     init() {
@@ -97,8 +92,6 @@ class MovieController {
         save()
     }
  
- 
-    
     // U
     @discardableResult
     func updateLikedImage(movie: Movie) -> Movie?  {
@@ -109,9 +102,6 @@ class MovieController {
         return likedMovies[index]
     }
     
-    func movie(at indexPath: IndexPath) -> Movie {
-        return movies[indexPath.row]
-    }
     
     // R
    private func fileURL() -> URL {
@@ -159,9 +149,7 @@ class MovieController {
                 print("Error removing file: \(#function) \(error.localizedDescription) \(error)")
             }
         }
-
     }
-    
 }
 
 

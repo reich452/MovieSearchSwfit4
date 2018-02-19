@@ -51,7 +51,7 @@ class MovieTableViewCell: UITableViewCell {
         
         if MovieController.shared.likedMovieIDs.contains(movie.id) {
             likeButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
-        } else {
+        } else if !movie.isLiked {
             likeButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
         }
     }

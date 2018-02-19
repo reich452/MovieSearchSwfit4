@@ -90,9 +90,9 @@ class MovieController {
     }
     
     func deleteLikedMovie(movie: Movie) {
-        guard let index = likedMovies.index(of: movie) else {print("likedMoives Indes"); return }
-        likedMovies.remove(at: index)
-        print("Deleted \(movie.id)")
+   
+        guard let indexAt = likedMovies.index(where: {$0.id == movie.id }) else { return }
+        likedMovies.remove(at: indexAt)
     
         save()
     }
@@ -100,11 +100,11 @@ class MovieController {
  
     
     // U
-    
-    func updateLikedImage(movie: Movie) -> Movie? {
+    @discardableResult
+    func updateLikedImage(movie: Movie) -> Movie?  {
     
         movie.isLiked = !movie.isLiked
-        guard let index = movies.index(of: movie) else { return nil }
+        guard let index = likedMovies.index(of: movie) else { return nil }
         save()
         return likedMovies[index]
     }
@@ -150,21 +150,19 @@ class MovieController {
         }
     }
     
-}
-
-
-extension Array where Element:Equatable {
-    func removeDuplicates() -> [Element] {
-        var result = [Element]()
-        
-        for value in self {
-            if result.contains(value) == false {
-                result.append(value)
+    func remove() {
+        let url = fileURL()
+        if FileManager.default.fileExists(atPath: url.path) {
+            do {
+                try FileManager.default.removeItem(at: url)
+            } catch {
+                print("Error removing file: \(#function) \(error.localizedDescription) \(error)")
             }
         }
-        
-        return result
+
     }
+    
 }
+
 
 

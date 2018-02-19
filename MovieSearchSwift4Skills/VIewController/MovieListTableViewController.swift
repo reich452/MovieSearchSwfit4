@@ -35,22 +35,16 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
     
     func isLikedButtonCellTapped(_ cell: MovieTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        let movie = MovieController.shared.likedMovies[indexPath.row]
-        let _ = MovieController.shared.updateLikedImage(movie: movie)
-      
-        if movie.moiveIds.contains(movie.id) {
-            guard let index = movie.moiveIds.index(of: movie.id) else { print("Cant find id"); return }
-            movie.moiveIds.remove(at: index)
-            guard let indexAt = MovieController.shared.movies.index(where: { $0.id == movie.id})  else { print("Not equal indexAt"); return }
+        let movie = MovieController.shared.movies[indexPath.row]
+        MovieController.shared.updateLikedImage(movie: movie)
+    
+        if MovieController.shared.likedMovieIDs.contains(movie.id) {
+            MovieController.shared.deleteLikedMovie(movie: movie)
             cell.likeButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
-            let moiveToDelete = MovieController.shared.likedMovies[indexAt]
-            MovieController.shared.deleteLikedMovie(movie: moiveToDelete)
         } else {
-            movie.moiveIds.append(movie.id)
             MovieController.shared.saveLikedMovie(moiveId: movie.id)
-            MovieController.shared.likedMovies.append(movie)
-            cell.likeButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
         }
+    
         tableView.reloadRows(at: [indexPath], with: .fade)
         cell.updateViews()
     }
@@ -109,7 +103,7 @@ extension MovieListTableViewController: UITableViewDataSourcePrefetching {
                 let requestUrl = baseImageUrl?.appendingPathComponent(posterUrl) else { return }
             
             URLSession.shared.dataTask(with: requestUrl)
-            print("Prefetching \(moive.title)")
+        
         }
     }
 }

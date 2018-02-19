@@ -40,7 +40,6 @@ class Movie: Codable {
         self.overview = overview
         self.id = id
         self.isLiked = isLiked
-        self.moiveIds = moiveIds
     }
     
 //    mutating func toggleIsLiked(isLiked: Bool = false) {

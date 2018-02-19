@@ -77,7 +77,7 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let moiveCell = cell as? MovieTableViewCell else { return }
         
-        moiveCell.backgroundColor = UIColor(white: 1, alpha: 0.1)
+        moiveCell.backgroundColor = UIColor(white: 1, alpha: 0.0)
     }
     
     

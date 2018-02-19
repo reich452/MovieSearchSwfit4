@@ -55,4 +55,11 @@ class MovieTableViewCell: UITableViewCell {
             likeButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
         }
     }
+    
+    func setUpUI() {
+        moiveCellBackgroundImageView.isHidden = true
+        backgroundColor = UIColor(white: 1, alpha: 0.0)
+        posterImageView.layer.cornerRadius = 10
+        posterImageView.clipsToBounds = true 
+    }
 }

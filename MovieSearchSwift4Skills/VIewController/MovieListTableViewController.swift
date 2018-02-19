@@ -19,6 +19,11 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
         setUpUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     // MARK: - Delegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
@@ -61,12 +66,11 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
         
         let moive = MovieController.shared.movies[indexPath.row]
         guard let posterPath = moive.posterPath else { return UITableViewCell() }
-        
+
         cell.movie = moive
         cell.delegate = self 
         cell.posterImageView.loadImage(imagePath: posterPath)
-        
-        
+
         return cell
     }
     
@@ -126,6 +130,7 @@ extension MovieListTableViewController {
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = imageView.bounds
         imageView.addSubview(blurView)
+        
     }
 }
 

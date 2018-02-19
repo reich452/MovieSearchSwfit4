@@ -20,6 +20,7 @@ class MovieDetailViewController: UIViewController {
         setUpUI()
     }
     
+    
     func updateViews() {
         guard let movie = movie else { return }
         let popularity = Int(movie.voteAverage)
@@ -32,9 +33,14 @@ class MovieDetailViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func illPassButtonTapped(_ sender: Any) {
+        guard let movie = movie else { return }
+        MovieController.shared.deleteLikedMovie(movie: movie)
+        
     }
     
     @IBAction func cantWaitButtonTapped(_ sender: Any) {
+        guard let movie = movie else { return }
+        MovieController.shared.saveLikedMovie(moiveId: movie.id)
     }
     
     private func howManyStars(numberOfStars: Int) -> String {

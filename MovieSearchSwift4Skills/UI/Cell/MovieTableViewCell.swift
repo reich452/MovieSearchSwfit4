@@ -17,11 +17,11 @@ class MovieTableViewCell: UITableViewCell {
 
 
     @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var customBackgroundView: BackgroundView!
+    @IBOutlet weak var moiveCellBackgroundImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var overViewLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var releaseDateLabel: UILabel!
     
     // MARK: - Properties
     weak var delegate: MovieTableViewCellDelegate?
@@ -47,13 +47,12 @@ class MovieTableViewCell: UITableViewCell {
         guard let movie = movie else { return }
         titleLabel.text = movie.title
         ratingLabel.text = "\(movie.popularity)"
-        overViewLabel.text = movie.overview
-        
+        releaseDateLabel.text = movie.releaseDate
+       
         if MovieController.shared.likedMovieIDs.contains(movie.id) {
             likeButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
         } else if !movie.isLiked {
             likeButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
         }
     }
-    
 }

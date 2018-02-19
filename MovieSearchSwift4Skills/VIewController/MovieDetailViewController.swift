@@ -17,6 +17,7 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        setUpUI()
     }
     
     func updateViews() {
@@ -73,4 +74,10 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var overViewLabel: UILabel!
     @IBOutlet weak var fadeView: UIView!
     
+}
+
+extension MovieDetailViewController {
+    func setUpUI() {
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1/255, green: 1/255, blue: 1/255, alpha: 0.1)
+    }
 }

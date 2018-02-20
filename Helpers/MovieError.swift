@@ -1,5 +1,5 @@
 //
-//  MoiveError.swift
+//  MovieError.swift
 //  MovieSearchSwift4Skills
 //
 //  Created by Nick Reichard on 2/16/18.

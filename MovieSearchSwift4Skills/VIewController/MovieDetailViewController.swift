@@ -42,7 +42,7 @@ class MovieDetailViewController: UIViewController {
     @IBAction func cantWaitButtonTapped(_ sender: UIButton) {
         sender.likeShake()
         guard let movie = movie else { return }
-        MovieController.shared.saveLikedMovie(moiveId: movie.id)
+        MovieController.shared.saveLikedMovie(movieId: movie.id)
     }
     
     private func howManyStars(numberOfStars: Int) -> String {

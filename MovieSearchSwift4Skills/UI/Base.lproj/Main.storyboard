@@ -144,7 +144,7 @@
                                     <outlet property="ratingLabel" destination="bcs-NZ-EWI" id="iMO-ie-oxh"/>
                                     <outlet property="releaseDateLabel" destination="Fbv-Vd-VQp" id="rsI-J2-SuD"/>
                                     <outlet property="titleLabel" destination="kk1-Le-Osc" id="9mH-ux-fhd"/>
-                                    <segue destination="yBC-ks-Ug0" kind="show" identifier="toMoiveDetail" id="w0t-fA-cUW"/>
+                                    <segue destination="yBC-ks-Ug0" kind="show" identifier="toMovieDetail" id="w0t-fA-cUW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

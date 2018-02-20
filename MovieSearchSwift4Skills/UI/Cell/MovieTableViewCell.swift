@@ -17,7 +17,7 @@ class MovieTableViewCell: UITableViewCell {
 
 
     @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var moiveCellBackgroundImageView: UIImageView!
+    @IBOutlet weak var movieCellBackgroundImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
@@ -57,7 +57,7 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     func setUpUI() {
-        moiveCellBackgroundImageView.isHidden = true
+        movieCellBackgroundImageView.isHidden = true
         backgroundColor = UIColor(white: 1, alpha: 0.0)
         posterImageView.layer.cornerRadius = 10
         posterImageView.clipsToBounds = true 

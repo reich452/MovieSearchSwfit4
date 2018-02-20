@@ -29,7 +29,7 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
         guard let searchText = searchBar.text else { return }
         searchBar.resignFirstResponder()
         let _ = MovieController.shared.load()
-        MovieController.shared.fetchMovie(with: searchText) { (moives, error) in
+        MovieController.shared.fetchMovie(with: searchText) { (movies, error) in
             DispatchQueue.main.async { [weak self] in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = true
                 self?.tableView.reloadData()
@@ -47,7 +47,7 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
             MovieController.shared.deleteLikedMovie(movie: movie)
             cell.likeButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
         } else {
-            MovieController.shared.saveLikedMovie(moiveId: movie.id)
+            MovieController.shared.saveLikedMovie(movieId: movie.id)
         }
     
         tableView.reloadRows(at: [indexPath], with: .fade)
@@ -64,10 +64,10 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.movieCellID, for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         
-        let moive = MovieController.shared.movies[indexPath.row]
-        guard let posterPath = moive.posterPath else { return UITableViewCell() }
+        let movie = MovieController.shared.movies[indexPath.row]
+        guard let posterPath = movie.posterPath else { return UITableViewCell() }
 
-        cell.movie = moive
+        cell.movie = movie
         cell.delegate = self 
         cell.posterImageView.loadImage(imagePath: posterPath)
 

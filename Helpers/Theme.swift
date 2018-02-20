@@ -31,7 +31,7 @@ class BackgroundView: UIView {
     }
 }
 
-class MoiveImageView: UIImageView {
+class MovieImageView: UIImageView {
     
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {

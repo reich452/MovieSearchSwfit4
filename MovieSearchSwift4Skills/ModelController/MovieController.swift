@@ -78,8 +78,8 @@ class MovieController {
     
     // C
     
-    func saveLikedMovie(moiveId: Int, isLiked: Bool = false) {
-        let movie = Movie(id: moiveId, isLiked: isLiked)
+    func saveLikedMovie(movieId: Int, isLiked: Bool = false) {
+        let movie = Movie(id: movieId, isLiked: isLiked)
         likedMovies.append(movie)
         save()
     }
@@ -107,7 +107,7 @@ class MovieController {
    private func fileURL() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = paths[0]
-        let filePath = "likedMoivess.json"
+        let filePath = "likedMovies.json"
         let url = documentDirectory.appendingPathComponent(filePath)
         return url
     }
@@ -135,7 +135,7 @@ class MovieController {
             print(movies.flatMap{$0.id})
             return movies
         } catch let error {
-            print("Error loading liked moives from disk: \(#function) \(error) \(error.localizedDescription)")
+            print("Error loading liked movies from disk: \(#function) \(error) \(error.localizedDescription)")
             return []
         }
     }

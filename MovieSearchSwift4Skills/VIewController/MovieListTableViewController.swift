@@ -79,16 +79,16 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let moiveCell = cell as? MovieTableViewCell else { return }
+        guard let movieCell = cell as? MovieTableViewCell else { return }
         
-        moiveCell.backgroundColor = UIColor(white: 1, alpha: 0.0)
+        movieCell.backgroundColor = UIColor(white: 1, alpha: 0.0)
     }
     
     
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toMoiveDetail" {
+        if segue.identifier == "toMovieDetail" {
             guard let destinationVC = segue.destination as? MovieDetailViewController,
                 let indexPath = tableView.indexPathForSelectedRow else { return }
             
@@ -107,9 +107,9 @@ extension MovieListTableViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             
-            let moive = MovieController.shared.movies[indexPath.row]
+            let movie = MovieController.shared.movies[indexPath.row]
             let baseImageUrl = URL(string: "\(Query.shared.imageBaseUrl)")
-            guard let posterUrl = moive.posterPath,
+            guard let posterUrl = movie.posterPath,
                 let requestUrl = baseImageUrl?.appendingPathComponent(posterUrl) else { return }
             URLSession.shared.dataTask(with: requestUrl)
         }

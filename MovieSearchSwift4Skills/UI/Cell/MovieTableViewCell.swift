@@ -58,8 +58,13 @@ class MovieTableViewCell: UITableViewCell {
     
     func setUpUI() {
         movieCellBackgroundImageView.isHidden = true
-        backgroundColor = UIColor(white: 1, alpha: 0.0)
+        backgroundColor = .clear
         posterImageView.layer.cornerRadius = 10
         posterImageView.clipsToBounds = true 
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
     }
 }

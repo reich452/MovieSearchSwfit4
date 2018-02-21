@@ -10,4 +10,18 @@ import UIKit
 
 class SavedMoiveCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var movieImage: UIImageView!
+    
+    var moive: Movie?
+    
+    var posterImage: UIImage? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    func updateViews() {
+        guard let posterPath = moive?.posterPath else { return }
+        movieImage.loadImage(imagePath: posterPath)
+    }
 }

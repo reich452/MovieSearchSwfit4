@@ -37,7 +37,7 @@ class Movie: Codable {
         case id
     }
     
-    init(title: String = String(), popularity: Double = Double(), posterPath: String? = String(), overview: String = String(), id: Int, isLiked: Bool, voteAverage: Double = Double(), releaseDate: String = String()) {
+    init(title: String = String(), popularity: Double = Double(), posterPath: String?, overview: String = String(), id: Int, isLiked: Bool = false, voteAverage: Double, releaseDate: String = String()) {
         self.title = title
         self.popularity = popularity
         self.posterPath = posterPath
@@ -57,6 +57,8 @@ extension Movie: Equatable {
         && lhs.overview == rhs.overview
         && lhs.id == rhs.id
         && lhs.isLiked == rhs.isLiked
+        && lhs.voteAverage == rhs.voteAverage
+        && rhs.releaseDate == rhs.releaseDate
     }
 }
 

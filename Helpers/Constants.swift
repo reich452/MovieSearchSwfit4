@@ -11,4 +11,5 @@ import Foundation
 struct Constants {
     
     static let movieCellID = "movieCell"
+    static let savedMoiveCellID = "savedMoiveCell"
 }

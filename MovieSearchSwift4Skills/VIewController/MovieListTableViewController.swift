@@ -45,12 +45,11 @@ class MovieListTableViewController: UITableViewController, UISearchBarDelegate, 
     
         if MovieController.shared.likedMovieIDs.contains(movie.id) {
             MovieController.shared.deleteLikedMovie(movie: movie)
-            cell.likeButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
         } else {
-            MovieController.shared.saveLikedMovie(movieId: movie.id)
+            guard let posterPath = movie.posterPath else { return }
+            MovieController.shared.saveLikedMovie(posterePath: posterPath, movieId: movie.id, voteAverage: movie.voteAverage)
         }
     
-        tableView.reloadRows(at: [indexPath], with: .fade)
         cell.updateViews()
     }
     

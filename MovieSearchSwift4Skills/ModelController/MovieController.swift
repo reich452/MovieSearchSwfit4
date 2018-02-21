@@ -6,7 +6,7 @@
 //  Copyright © 2018 Nick Reichard. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class MovieController {
     
@@ -78,8 +78,8 @@ class MovieController {
     
     // C
     
-    func saveLikedMovie(movieId: Int, isLiked: Bool = false) {
-        let movie = Movie(id: movieId, isLiked: isLiked)
+    func saveLikedMovie(posterePath: String?, movieId: Int, voteAverage: Double) {
+        let movie = Movie(posterPath: posterePath, id: movieId, voteAverage: voteAverage)
         likedMovies.append(movie)
         save()
     }
@@ -100,6 +100,14 @@ class MovieController {
         guard let index = likedMovies.index(of: movie) else { return nil }
         save()
         return likedMovies[index]
+    }
+    
+    @discardableResult
+    func updateHigestRatedSaved(moiveImage: String) -> Double {
+        
+        let voteAverages = likedMovies.map{$0.voteAverage}
+        let topRatedMoive = voteAverages.reduce(0) { $1 >= $0 ? $1 : $0 }
+        return topRatedMoive
     }
     
     
